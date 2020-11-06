@@ -1,1 +1,1 @@
-FORM gitlab/gitlab-ce:13.2.3-ce.0
+FROM gitlab/gitlab-ce:13.2.3-ce.0
