@@ -15,4 +15,4 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Build the Docker image
-      run: docker build . --file jdk/v1.8u381/Dockerfile --tag txdier/jdk:v1.8u381 && docker push txdier/jdk:v1.8u381
+      run: cd jdk/v1.8u381/; docker build . --file Dockerfile --tag txdier/jdk:v1.8u381 && docker push txdier/jdk:v1.8u381
