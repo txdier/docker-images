@@ -1,0 +1,24 @@
+name: Build and Push Docker Image for Service1 v1
+
+on:
+  push:
+    paths:
+      - 'tomcat/v8.5.23/**'
+  pull_request:
+    paths:
+      - 'tomcat/v8.5.23/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Log in to Docker Hub
+      uses: docker/login-action@v3
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+    - uses: actions/checkout@v4
+    - name: Build the Docker image
+      run: cd tomcat/v8.5.23/; docker build . --file Dockerfile --tag txdier/tomcat:v8.5.23 && docker push txdier/tomcat:v8.5.23
