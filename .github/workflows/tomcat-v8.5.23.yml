@@ -8,6 +8,9 @@ on:
     paths:
       - 'tomcat/v8.5.23/**'
 
+env:
+  tags: $(date +'%Y%m%d%H%M')
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -21,4 +24,4 @@ jobs:
 
     - uses: actions/checkout@v4
     - name: Build the Docker image
-      run: cd tomcat/v8.5.23/; docker build . --file Dockerfile --tag txdier/tomcat:v8.5.23$(date +%Y%m%d%H%M) && docker push txdier/tomcat:v8.5.23.$(date +%Y%m%d%H%M)
+      run: cd tomcat/v8.5.23/; docker build . --file Dockerfile --tag txdier/tomcat:v8.5.23.$tags && docker push txdier/tomcat:v8.5.23.$tags
