@@ -8,7 +8,6 @@ on:
     paths:
       - 'tomcat/v8.5.23/**'
 
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -22,4 +21,4 @@ jobs:
 
     - uses: actions/checkout@v4
     - name: Build the Docker image
-      run: cd tomcat/v8.5.23/; docker build . --file Dockerfile --tag txdier/tomcat:v8.5.23.4 && docker push txdier/tomcat:v8.5.23.4
+      run: cd tomcat/v8.5.23/; docker build . --file Dockerfile --tag txdier/tomcat:v8.5.23.5 && docker push txdier/tomcat:v8.5.23.5
