@@ -13,7 +13,7 @@ if [ -z "$domain" ]; then
 else
    echo $(ip addr show eth0 | grep -Eo '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | head -1) $domain >> /etc/hosts
 fi
-/usr/sbin/crond
+# /usr/sbin/crond
 echo "Tomcat is running..."
 #exec /app/tomcat/bin/catalina.sh run 2>&1 | /usr/sbin/cronolog /app/tomcat/logs/catalina.%Y-%m-%d.log
 exec "$@"
