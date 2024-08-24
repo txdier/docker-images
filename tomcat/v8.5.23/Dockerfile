@@ -2,7 +2,7 @@ FROM ubuntu:22.04
 
 COPY docker-entrypoint.sh /
 RUN	apt update && \
-	apt install -y wget curl tar unzip && \
+	apt install -y wget curl tar unzip cron && \
 	apt clean
 # 官网下载旧版本需要登录。这里配置的jdk下载地址为Cloudflare R2地址。
 RUN wget https://pub-2f882d5e724749a382228f2e5512db91.r2.dev/jdk-8u171-linux-x64.tar.gz && \
